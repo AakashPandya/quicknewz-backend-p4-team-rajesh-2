@@ -15,9 +15,11 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
       - name: Change directory
-        run: cd api
-      - name: Install Dependencies and build
-        run: yarn && yarn build
+        run: cd api/functions
+      - name: Install Dependencies
+        run: yarn
+      - name: Build
+        run: yarn build
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
