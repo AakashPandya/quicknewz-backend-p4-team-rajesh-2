@@ -6,5 +6,5 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => res.status(200).send("Hello!"));
+app.get("/", (req, res) => res.status(200).send("Hello world456!"));
 exports.app = functions.https.onRequest(app);
