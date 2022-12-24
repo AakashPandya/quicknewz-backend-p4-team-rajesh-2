@@ -24,7 +24,7 @@ jobs:
       # And of course we need to goto our functions folder to deploy
       - name: Install npm packages
         run: |
-          cd api
+          cd api/functions
           npm install
       # Deploying the functions to firebase
       - name: Deploy to Firebase
