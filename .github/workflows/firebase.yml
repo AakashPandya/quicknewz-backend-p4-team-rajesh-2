@@ -33,4 +33,4 @@ jobs:
           args: deploy --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_PATH: "Google Cloud Functions/app"
+          PROJECT_PATH: "api/functions"
