@@ -18,8 +18,6 @@ jobs:
         run: cd api/functions
       - name: Install Dependencies
         run: yarn
-      - name: deploy
-        run: yarn deploy
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
