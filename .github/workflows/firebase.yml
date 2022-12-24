@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
       - name: Change directory
-        uses: cd cron-job
+        run: cd cron-job
       - name: Install Dependencies
         run: yarn
       - name: Build
