@@ -16,6 +16,7 @@ module.exports = {
   parserOptions: {
     project: ["tsconfig.json", "tsconfig.dev.json"],
     sourceType: "module",
+    tsconfigRootDir: __dirname,
   },
   ignorePatterns: [
     "/lib/**/*", // Ignore built files.
@@ -26,5 +27,7 @@ module.exports = {
     "quote-props": 0,
     "import/no-unresolved": 0,
     "object-curly-spacing": 0,
+    "new-cap": 0,
+    indent: 0,
   },
 };
