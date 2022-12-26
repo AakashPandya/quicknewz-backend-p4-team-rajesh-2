@@ -1,12 +1,12 @@
 import * as functions from "firebase-functions";
 
+import cors from "cors";
 import express from "express";
 import headlinesRoutes from "./routes/headlinesRoutes";
 import mongoose from "mongoose";
 
-// import mongoose from "mongoose";
-
 const app = express();
+app.use(cors({ origin: true }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
