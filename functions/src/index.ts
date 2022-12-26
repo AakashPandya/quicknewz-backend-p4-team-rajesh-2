@@ -31,6 +31,10 @@ mongoose
 
 functions.logger.log("End");
 
+app.get("/", (req, res) => {
+  res.send("APP IS WORKING FINE");
+});
+
 exports.app = functions
   .runWith({
     timeoutSeconds: 540,
