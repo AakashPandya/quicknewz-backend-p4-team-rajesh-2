@@ -11,14 +11,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-functions.logger.log("Start");
+functions.logger.log("Start 312");
 
 mongoose
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   .connect(process.env.MONGODB_URI!)
   .then(() => {
-    functions.logger.log("Connected");
     try {
+      functions.logger.log("Connected 321");
       app.use("/headlines", headlinesRoutes);
     } catch (ex) {
       console.log(ex);
