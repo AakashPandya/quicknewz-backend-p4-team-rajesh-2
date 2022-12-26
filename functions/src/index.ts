@@ -2,6 +2,7 @@ import * as functions from "firebase-functions";
 
 import express from "express";
 import headlinesRoutes from "./routes/headlinesRoutes";
+import mongoose from "mongoose";
 
 // import mongoose from "mongoose";
 
@@ -10,23 +11,30 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// mongoose
-//   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-//   .connect(process.env.MONGODB_URI!)
-//   .then(() => {
-//     try {
-//       app.use("/headlines", headlinesRoutes);
-//     } catch (ex) {
-//       console.log(ex);
-//     }
-//   })
-// eslint-disable-next-line max-len
-//   .catch((ex) => console.log("something went wrong while connecting db", ex));
+functions.logger.log("Start");
 
-app.use("/headlines", headlinesRoutes);
+mongoose
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  .connect(process.env.MONGODB_URI!)
+  .then(() => {
+    functions.logger.log("Connected");
+    try {
+      app.use("/headlines", headlinesRoutes);
+    } catch (ex) {
+      console.log(ex);
+    }
+  })
+  .catch((ex) => {
+    functions.logger.log("error", ex);
+    console.log("something went wrong while connecting db", ex);
+  });
+
+functions.logger.log("End");
+
 exports.app = functions
   .runWith({
     timeoutSeconds: 540,
     memory: "1GB",
+    secrets: ["MONGODB_URI"],
   })
   .https.onRequest(app);
