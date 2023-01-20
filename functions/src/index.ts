@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("APP5 IS WORKING FINE");
+  res.send("APP 6 IS WORKING FINE");
 });
 app.use("/headlines", headlinesRoutes);
 
