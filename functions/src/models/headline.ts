@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 const { model, Schema } = mongoose;
 
 const headlinesSchema = new Schema({
+  _id: { type: Number },
   title: { type: String, unique: true },
   link: { type: String, unique: true },
   imageLink: { type: String },
