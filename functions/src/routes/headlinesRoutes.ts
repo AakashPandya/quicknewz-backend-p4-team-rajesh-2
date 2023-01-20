@@ -16,7 +16,6 @@ router.route("/").get(async (req: Request, res: Response) => {
         {
           title: new RegExp("", "i"),
         },
-        { _id: 0 },
         { createdAt: -1 }
       );
       res.send(headlines);
