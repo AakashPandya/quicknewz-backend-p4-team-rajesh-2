@@ -12,8 +12,20 @@ router.route("/").get(async (req: Request, res: Response) => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     .connect(process.env.MONGODB_URI!)
     .then(async () => {
-      const headlines = await headlinesModel.find();
-      res.send(headlines);
+      const filterQuery: any = {};
+
+      if (req.query.next) {
+        filterQuery._id = { $lt: req.query.next };
+      }
+      if (req.query.searchText) {
+        filterQuery.title = { $regex: req.query.searchText };
+      }
+      const headlines = await headlinesModel
+        .find(filterQuery)
+        .limit(6)
+        .sort({ createdAt: -1 });
+      const next = headlines[headlines.length - 1]._id;
+      res.send({ headlines, next });
     })
     .catch((ex) => {
       console.log("something went wrong while connecting db", ex);
