@@ -1,3 +1,4 @@
+/* eslint-disable no-invalid-this */
 import { Schema, model } from "mongoose";
 
 import bcrypt from "bcryptjs";
@@ -52,6 +53,7 @@ const userSchema = new Schema<IUser>(
 userSchema.index({ email: 1 }, { unique: true });
 
 userSchema.pre("save", async function () {
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
   const user = this;
   if (user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 8);
@@ -59,6 +61,7 @@ userSchema.pre("save", async function () {
 });
 
 userSchema.methods.isPasswordMatch = async function (password: string) {
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
   const user = this;
   return bcrypt.compare(password, user.password);
 };
