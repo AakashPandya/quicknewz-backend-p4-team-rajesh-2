@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 /* eslint-disable no-invalid-this */
 import { Schema, model } from "mongoose";
 

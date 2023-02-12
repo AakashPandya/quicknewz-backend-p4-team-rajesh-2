@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 export default class ApiError extends Error {
   isOperational: boolean;
   statusCode: any;
