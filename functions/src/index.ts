@@ -3,6 +3,7 @@ import * as functions from "firebase-functions";
 import cors from "cors";
 import express from "express";
 import headlinesRoutes from "./routes/headlinesRoutes";
+import authRoutes from "./routes/authRoutes";
 
 // import mongoose from "mongoose";
 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
   res.send("APP 6 IS WORKING FINE");
 });
 app.use("/headlines", headlinesRoutes);
+app.use("/auth", authRoutes);
 
 exports.app = functions
   .runWith({
