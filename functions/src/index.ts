@@ -23,6 +23,6 @@ exports.app = functions
   .runWith({
     timeoutSeconds: 540,
     memory: "1GB",
-    secrets: ["MONGODB_URI"],
+    secrets: ["MONGODB_URI", "ACCESS_TOKEN_SECRET", "REFRESH_TOKEN_SECRET"],
   })
   .https.onRequest(app);

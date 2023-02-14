@@ -1,4 +1,3 @@
-import config from "../config";
 import jwt from "jsonwebtoken";
 
 export const generateAccessToken = (userId: string, mail: string) => {
@@ -7,5 +6,7 @@ export const generateAccessToken = (userId: string, mail: string) => {
     mail,
   };
 
-  return jwt.sign(payload, config?.jwt.accessTokenSecret, { expiresIn: "1hr" });
+  return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET!, {
+    expiresIn: "1hr",
+  });
 };
