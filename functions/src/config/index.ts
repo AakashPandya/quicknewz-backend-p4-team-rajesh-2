@@ -30,8 +30,6 @@ if (error) {
 }
 
 export default {
-  env: envVars.NODE_ENV,
-  port: envVars.PORT,
   jwt: {
     accessTokenSecret: envVars.ACCESS_TOKEN_SECRET,
     refreshTokenSecret: envVars.REFRESH_TOKEN_SECRET,
@@ -39,15 +37,15 @@ export default {
   mongoose: {
     url: envVars.MONGODB_URI,
   },
-  email: {
-    smtp: {
-      host: envVars.SMTP_HOST,
-      port: envVars.SMTP_PORT,
-      auth: {
-        user: envVars.SMTP_USERNAME,
-        pass: envVars.SMTP_PASSWORD,
-      },
-    },
-    from: envVars.EMAIL_FROM,
-  },
+  // email: {
+  //   smtp: {
+  //     host: envVars.SMTP_HOST,
+  //     port: envVars.SMTP_PORT,
+  //     auth: {
+  //       user: envVars.SMTP_USERNAME,
+  //       pass: envVars.SMTP_PASSWORD,
+  //     },
+  //   },
+  //   from: envVars.EMAIL_FROM,
+  // },
 };
