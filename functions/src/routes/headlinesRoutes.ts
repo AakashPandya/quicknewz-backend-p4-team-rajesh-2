@@ -22,7 +22,7 @@ router.route("/").get(async (req: Request, res: Response) => {
       }
       const headlines = await headlinesModel
         .find(filterQuery)
-        .limit(8)
+        .limit(12)
         .sort({ createdAt: -1 });
       const next = headlines[headlines.length - 1]._id;
       res.send({ headlines, next });
