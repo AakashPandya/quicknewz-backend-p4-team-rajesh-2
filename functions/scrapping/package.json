@@ -1,0 +1,17 @@
+{
+  "name": "practise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ndtvscrapping.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node ndtvscrapping.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^6.8.0",
+    "playwright": "^1.28.1"
+  }
+}
