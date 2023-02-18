@@ -28,7 +28,7 @@ export const createUser = async (userDTO: IUser) => {
         return await user.save();
       })
       .catch((ex) => {
-        console.log("something went wrong while connecting db", ex);
+        throw ex;
       })
   );
 };
@@ -46,7 +46,7 @@ export const login = async (email: string, password: string) => {
         return false;
       })
       .catch((ex) => {
-        console.log("something went wrong while connecting db", ex);
+        throw ex;
       })
   );
 };
